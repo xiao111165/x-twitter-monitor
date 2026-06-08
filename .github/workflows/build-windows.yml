@@ -21,9 +21,9 @@ jobs:
         pip install pyinstaller
         pip install -r requirements.txt
     
-    - name: Build EXE
+    - name: Build EXE with hidden imports
       run: |
-        pyinstaller --onefile --windowed --name "X-Twitter-Monitor" main.py
+        pyinstaller --onefile --windowed --name "X-Twitter-Monitor" --hidden-import=twitscrape --hidden-import=ttkbootstrap main.py
     
     - name: Upload artifact
       uses: actions/upload-artifact@v4
